@@ -30,6 +30,7 @@
     overflow-x: hidden;
   }
 
+  /* Custom Cursor */
   .cursor {
     position: fixed;
     top: 0; left: 0;
@@ -44,18 +45,24 @@
   }
   .cursor.big { width: 44px; height: 44px; background: var(--accent); opacity: .5; }
 
+  /* Grain Overlay */
   body::after {
     content: '';
     position: fixed; inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 9997; opacity: .5;
+    pointer-events: none; 
+    z-index: 997; 
+    opacity: .5;
   }
 
+  /* ─── NAV FIX: Ensure visibility and layering ─── */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
-    z-index: 200;
+    z-index: 1000;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.4rem 2.5rem;
+    padding: 1.5rem 2.5rem;
+    background: rgba(242, 237, 230, 0.1);
+    backdrop-filter: blur(10px);
   }
   .nav-logo {
     font-family: var(--display);
@@ -75,15 +82,17 @@
   }
   .nav-links a:hover::after { width: 100%; }
 
+  /* ─── HERO FIX: Added padding-top to reveal hidden content ─── */
   .hero {
     min-height: 100vh;
     display: grid; grid-template-columns: 1fr 1fr;
     position: relative; overflow: hidden;
+    padding-top: 5rem;
   }
   .hero-left {
     display: flex; flex-direction: column;
     justify-content: flex-end;
-    padding: 7rem 2.5rem 4rem;
+    padding: 2rem 2.5rem 4rem;
     position: relative; z-index: 2;
   }
   .hero-eyebrow {
@@ -197,7 +206,7 @@
   .reel-video-side {
     position: relative; overflow: hidden; background: #111;
     width: 100%;
-    aspect-ratio: 16 / 9; /* Native widescreen ratio */
+    aspect-ratio: 16 / 9;
   }
   .reel-video {
     width: 100%; height: 100%;
@@ -218,7 +227,7 @@
   }
   .section-num { font-family: var(--mono); font-size: .62rem; color: var(--accent); margin-left: auto; }
 
-  /* ─── PROJECTS & GRID ─── */
+  /* ─── PROJECTS & GRID FIXES ─── */
   .projects-section { background: var(--ink); }
   .projects-section .section-label-text { color: rgba(242,237,230,.35); }
 
@@ -265,6 +274,41 @@
     color: var(--accent); margin-top: .3rem;
   }
 
+  /* ─── CASE STUDY MODAL ─── */
+  .lb {
+    position: fixed; inset: 0; background: rgba(16,13,10,.98);
+    z-index: 2000; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity .4s ease;
+  }
+  .lb.open { opacity: 1; pointer-events: all; }
+  .modal-content {
+    width: 90vw;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--ink);
+    color: var(--paper);
+    padding-bottom: 4rem;
+  }
+  .modal-media {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+  .modal-text { padding: 3rem; max-width: 800px; }
+  .modal-project-title { font-family: var(--display); font-size: 4rem; margin-bottom: 1rem; color: var(--paper); }
+  .modal-project-desc { font-family: var(--mono); font-size: 0.9rem; line-height: 1.8; color: rgba(242,237,230,0.7); }
+  
+  .lb-close {
+    position: absolute; top: 1.5rem; right: 2.5rem;
+    font-family: var(--mono); font-size: .7rem;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--paper); background: none; border: none; cursor: none;
+    z-index: 2001;
+  }
+  .lb-close:hover { color: var(--accent); }
+
+  /* ─── FOOTER & ABOUT ─── */
   .about-strip {
     padding: 8rem 2.5rem;
     display: grid; grid-template-columns: 1fr 2fr; gap: 5rem;
@@ -272,15 +316,11 @@
     border-top: 1px solid rgba(26,23,20,.12);
   }
   .about-label {
-    font-family: var(--display);
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    line-height: .9; letter-spacing: .02em; color: var(--ink);
+    font-family: var(--display); font-size: clamp(2.5rem, 5vw, 5rem); line-height: .9; color: var(--ink);
   }
   .about-label em { font-family: var(--serif); font-style: italic; color: var(--accent); display: block; }
   .about-body {
-    font-family: var(--mono); font-size: .72rem;
-    line-height: 1.9; color: var(--muted);
-    max-width: 640px;
+    font-family: var(--mono); font-size: .72rem; line-height: 1.9; color: var(--muted); max-width: 640px;
   }
 
   footer {
@@ -288,16 +328,8 @@
     padding: 5rem 2.5rem 2.5rem;
     display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; align-items: end;
   }
-  .footer-name {
-    font-family: var(--display); font-size: 4.5rem;
-    line-height: .88; letter-spacing: .04em;
-  }
-  .footer-name span { color: var(--accent); }
-  .footer-email {
-    font-family: var(--display); font-size: 1.3rem;
-    letter-spacing: .06em; color: var(--paper); text-decoration: none;
-    transition: color .2s;
-  }
+  .footer-name { font-family: var(--display); font-size: 4.5rem; }
+  .footer-email { font-family: var(--display); font-size: 1.3rem; color: var(--paper); text-decoration: none; transition: color .2s; }
   .footer-email:hover { color: var(--accent); }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
@@ -306,20 +338,11 @@
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.vis { opacity: 1; transform: translateY(0); }
 
-  .lb {
-    position: fixed; inset: 0; background: rgba(16,13,10,.96);
-    z-index: 1000; display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity .3s;
-  }
-  .lb.open { opacity: 1; pointer-events: all; }
-  .lb-img { max-width: 88vw; max-height: 88vh; object-fit: contain; }
-
   @media (max-width: 960px) {
     .hero { grid-template-columns: 1fr; }
     .hero-right { display: none; }
     .projects-grid, .travel-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .reel-section { grid-template-columns: 1fr; }
-    .reel-video-side { aspect-ratio: 16 / 9; }
     .about-strip { grid-template-columns: 1fr; gap: 2rem; }
     footer { grid-template-columns: 1fr; }
     .section-wrap { padding: 4rem 1.5rem; }
@@ -365,10 +388,6 @@
     <div class="marquee-item"><span class="marquee-dot"></span>Rimmel</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Flannels</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Shiseido</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Video Editing</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Photography</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Milani</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>Rimmel</div>
   </div>
 </div>
 
@@ -393,24 +412,21 @@
   <h2 class="section-title projects-title">CLIENT<br><em>&amp; Brand</em></h2>
 
   <div class="grid-container projects-grid">
-    <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w')">
+    <div class="card-item" onclick="openCaseStudy('MILANI', 'milani.mp4', 'A high-energy social campaign for Milani Cosmetics focusing on the #MakeItLast setting spray. The edit required fast-paced motion design and precise color grading.', 'Editor / Colorist')">
       <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Milani">
-      <div class="card-info">
-        <div class="card-name">MILANI</div>
-        <div class="card-sub">Beauty · Campaign</div>
-      </div>
+      <div class="card-info"><div class="card-name">MILANI</div><div class="card-sub">Beauty · Case Study</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w')">
         <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Sally Hansen">
         <div class="card-info"><div class="card-name">SALLY HANSEN</div><div class="card-sub">Beauty</div></div>
     </div>
-    <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w')">
+    <div class="card-item" onclick="openCaseStudy('TOM\'S OF MAINE', 'toms.mp4', 'Sustainability-driven campaign edit highlighting natural ingredients and eco-friendly beauty.', 'Editor / Colorist')">
         <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Toms">
-        <div class="card-info"><div class="card-name">TOM'S OF MAINE</div><div class="card-sub">Beauty</div></div>
+        <div class="card-info"><div class="card-name">TOM'S OF MAINE</div><div class="card-sub">Beauty · Case Study</div></div>
     </div>
-    <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=1500w')">
+    <div class="card-item" onclick="openCaseStudy('SHISEIDO', 'shiseido.mp4', 'Dynamic NFT and social series for Shiseido\'s launch, focusing on high-energy motion design.', 'Motion Designer / Editor')">
         <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Shiseido">
-        <div class="card-info"><div class="card-name">SHISEIDO</div><div class="card-sub">Beauty</div></div>
+        <div class="card-info"><div class="card-name">SHISEIDO</div><div class="card-sub">Beauty · Case Study</div></div>
     </div>
   </div>
 </section>
@@ -421,7 +437,6 @@
     <span class="section-num">02</span>
   </div>
   <h2 class="section-title travel-title">STILL<br><em>Life</em></h2>
-
   <div class="grid-container travel-grid">
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w')">
       <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w" alt="Lake District">
@@ -431,18 +446,30 @@
         <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w" alt="Berlin">
         <div class="card-info"><div class="card-name">BERLIN</div><div class="card-sub">Travel</div></div>
     </div>
-    <div class="card-item"><img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Travel"><div class="card-info"><div class="card-name">NORWAY</div><div class="card-sub">Photography</div></div></div>
-    <div class="card-item"><img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Travel"><div class="card-info"><div class="card-name">ICELAND</div><div class="card-sub">Photography</div></div></div>
-    <div class="card-item"><img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Travel"><div class="card-info"><div class="card-name">SWISS ALPS</div><div class="card-sub">Photography</div></div></div>
+    <div class="card-item"><img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Norway"><div class="card-info"><div class="card-name">NORWAY</div><div class="card-sub">Photography</div></div></div>
+    <div class="card-item"><img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Iceland"><div class="card-info"><div class="card-name">ICELAND</div><div class="card-sub">Photography</div></div></div>
+    <div class="card-item"><img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Swiss Alps"><div class="card-info"><div class="card-name">SWISS ALPS</div><div class="card-sub">Photography</div></div></div>
   </div>
 </section>
+
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="closeLb()">Close ✕</button>
+  <div class="modal-content">
+    <div id="modal-media-container" class="modal-media">
+      <img id="lb-img" style="width:100%; height:100%; object-fit:contain; display:none;">
+    </div>
+    <div id="modal-text-container" class="modal-text" style="display:none;">
+      <h2 id="modal-title" class="modal-project-title"></h2>
+      <p id="modal-desc" class="modal-project-desc"></p>
+      <div id="modal-meta" style="margin-top:2rem; color:var(--accent); font-family:var(--mono); font-size:0.7rem; text-transform:uppercase;"></div>
+    </div>
+  </div>
+</div>
 
 <section class="about-strip reveal" id="about">
   <div class="about-label">LIVERPOOL<br><em>Creative</em></div>
   <div class="about-body">
     <p>I'm Elliot Whittaker — a <strong>Liverpool-based video editor and photographer</strong> working across commercial, beauty, and travel. I shoot, I film, and I edit, bringing a hands-on approach from concept through to final cut.</p>
-    <br>
-    <p>My clients include <strong>Milani, Rimmel, Flannels, Shiseido,</strong> and <strong>Ghost</strong> — brands that trust me to translate their stories into compelling visuals.</p>
   </div>
 </section>
 
@@ -452,9 +479,8 @@
   <div style="text-align: right;"><div class="footer-name">2026<span>.</span></div></div>
 </footer>
 
-<div class="lb" id="lb"><img class="lb-img" id="lb-img" src="" alt=""></div>
-
 <script>
+  // Cursor
   const cur = document.getElementById('cursor');
   document.addEventListener('mousemove', e => { cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; });
   document.querySelectorAll('a, .card-item').forEach(el => {
@@ -462,13 +488,55 @@
     el.addEventListener('mouseleave', () => cur.classList.remove('big'));
   });
 
+  // Reveal
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  function openLb(src) { if(!src) return; document.getElementById('lb-img').src = src; document.getElementById('lb').classList.add('open'); }
-  document.getElementById('lb').addEventListener('click', () => document.getElementById('lb').classList.remove('open'));
+  // Case Study & Lightbox Logic
+  function openCaseStudy(title, videoSrc, desc, role) {
+    const lb = document.getElementById('lb');
+    const mediaContainer = document.getElementById('modal-media-container');
+    const textContainer = document.getElementById('modal-text-container');
+    
+    document.getElementById('lb-img').style.display = 'none';
+    textContainer.style.display = 'block';
+    
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-desc').innerText = desc;
+    document.getElementById('modal-meta').innerText = "Role: " + role;
+    
+    mediaContainer.innerHTML = `<video controls autoplay style="width:100%; height:100%; object-fit:cover;"><source src="${videoSrc}" type="video/mp4"></video>`;
+    
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function openLb(imgSrc) {
+    const lb = document.getElementById('lb');
+    const img = document.getElementById('lb-img');
+    const textContainer = document.getElementById('modal-text-container');
+    
+    document.getElementById('modal-media-container').innerHTML = ''; // Clear video
+    document.getElementById('modal-media-container').appendChild(img);
+    
+    img.src = imgSrc;
+    img.style.display = 'block';
+    textContainer.style.display = 'none';
+    
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    const lb = document.getElementById('lb');
+    lb.classList.remove('open');
+    document.getElementById('modal-media-container').innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lb').addEventListener('click', e => { if (e.target.id === 'lb') closeLb(); });
 </script>
 </body>
 </html>
