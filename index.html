@@ -62,7 +62,7 @@
   }
   .nav-logo {
     font-family: var(--display);
-    font-size: 1.4rem; letter-spacing: .08em;
+    font-size: 1.1rem; letter-spacing: .08em;
     color: var(--ink); text-decoration: none;
   }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -143,7 +143,7 @@
   }
   .hero-img {
     position: absolute; inset: 0;
-    width: 100%; height: 100%; object-fit: cover; opacity: .8;
+    width: 100%; height: 100%; object-fit: cover; object-position: center 20%; opacity: .8;
   }
   .hero-overlay {
     position: absolute; inset: 0;
@@ -208,9 +208,9 @@
   }
   .project-card {
     position: relative; overflow: hidden; background: #111;
-    cursor: none; aspect-ratio: 3/4;
+    cursor: none; min-height: 380px;
   }
-  .project-card.wide { grid-column: span 2; aspect-ratio: 16/9; }
+  .project-card.wide { grid-column: span 2; min-height: 460px; }
   .project-thumb {
     width: 100%; height: 100%; object-fit: cover;
     transition: transform .7s cubic-bezier(.25,.46,.45,.94);
@@ -463,7 +463,7 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">EW</a>
+  <a class="nav-logo" href="#">ELLIOT WHITTAKER</a>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
     <li><a href="#travel">Photography</a></li>
