@@ -71,8 +71,6 @@
     transition: width .3s ease;
   }
   .nav-links a:hover::after { width: 100%; }
-
-  /* Nav light mode — white text over dark sections */
   nav.nav-light .nav-links a { color: var(--paper); }
   nav.nav-light .nav-links a::after { background: var(--paper); }
 
@@ -130,7 +128,6 @@
   .hero-cta:hover { color: var(--accent); border-color: var(--accent); }
   .hero-cta svg { transition: transform .3s; }
   .hero-cta:hover svg { transform: translateX(5px); }
-
   .hero-right {
     position: relative; overflow: hidden; background: var(--ink);
     opacity: 0; animation: fadeIn 1.2s ease .3s forwards;
@@ -181,11 +178,8 @@
   /* ─── SHOWREEL ─── */
   .reel-section {
     background: var(--ink);
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    min-height: 60vh;
-    align-items: center;
-    padding: 6rem 0;
+    display: grid; grid-template-columns: 1fr 1.5fr;
+    min-height: 60vh; align-items: center; padding: 6rem 2.5rem 6rem 0;
   }
   .reel-text-side {
     padding: 5rem 2.5rem; display: flex; flex-direction: column; justify-content: center;
@@ -210,16 +204,11 @@
     position: relative; overflow: hidden; background: #111;
     width: 100%; aspect-ratio: 16 / 9;
   }
-  .reel-video {
-    width: 100%; height: 100%;
-    object-fit: cover; position: absolute; inset: 0;
-  }
+  .reel-video { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
 
   /* ─── SHARED SECTION STYLES ─── */
   .section-wrap { padding: 8rem 2.5rem; }
-  .section-header {
-    display: flex; align-items: center; gap: 1.2rem; margin-bottom: 3.5rem;
-  }
+  .section-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 3.5rem; }
   .section-header::before {
     content: ''; display: block; width: 36px; height: 1px; background: var(--accent); flex-shrink: 0;
   }
@@ -232,7 +221,6 @@
   /* ─── PROJECTS ─── */
   .projects-section { background: var(--ink); }
   .projects-section .section-label-text { color: rgba(242,237,230,.35); }
-
   .section-title {
     font-family: var(--display);
     font-size: clamp(3rem, 6.5vw, 7.5rem);
@@ -241,19 +229,16 @@
   .projects-title { color: var(--paper); }
   .travel-title { color: var(--ink); }
   .section-title em { font-family: var(--serif); font-style: italic; color: var(--accent); }
-
   .grid-container { display: grid; gap: 20px; width: 100%; }
   .projects-grid { grid-template-columns: repeat(4, 1fr); }
   .travel-grid { grid-template-columns: repeat(5, 1fr); }
-
   .card-item {
     position: relative; overflow: hidden; background: #111;
     cursor: none; aspect-ratio: 1 / 1; width: 100%;
   }
   .card-thumb {
     width: 100%; height: 100%; object-fit: cover;
-    transition: transform .7s cubic-bezier(.25,.46,.45,.94);
-    display: block;
+    transition: transform .7s cubic-bezier(.25,.46,.45,.94); display: block;
   }
   .card-item:hover .card-thumb { transform: scale(1.05); }
   .card-info {
@@ -264,10 +249,7 @@
     opacity: 0; transition: opacity .4s ease;
   }
   .card-item:hover .card-info { opacity: 1; }
-  .card-name {
-    font-family: var(--display); font-size: 1.3rem;
-    letter-spacing: .08em; color: white;
-  }
+  .card-name { font-family: var(--display); font-size: 1.3rem; letter-spacing: .08em; color: white; }
   .card-sub {
     font-family: var(--mono); font-size: .55rem;
     letter-spacing: .2em; text-transform: uppercase;
@@ -298,15 +280,11 @@
     padding: 5rem 2.5rem 2.5rem;
     display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; align-items: end;
   }
-  .footer-name {
-    font-family: var(--display); font-size: 4.5rem;
-    line-height: .88; letter-spacing: .04em;
-  }
+  .footer-name { font-family: var(--display); font-size: 4.5rem; line-height: .88; letter-spacing: .04em; }
   .footer-name span { color: var(--accent); }
   .footer-email {
     font-family: var(--display); font-size: 1.3rem;
-    letter-spacing: .06em; color: var(--paper); text-decoration: none;
-    transition: color .2s;
+    letter-spacing: .06em; color: var(--paper); text-decoration: none; transition: color .2s;
   }
   .footer-email:hover { color: var(--accent); }
 
@@ -314,10 +292,6 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* ─── SCROLL REVEAL ─── */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.vis { opacity: 1; transform: translateY(0); }
 
   /* ─── LIGHTBOX ─── */
   .lb {
@@ -354,7 +328,6 @@
   </ul>
 </nav>
 
-<!-- ─── HERO ─── -->
 <section class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Liverpool Creative · Video Editor &amp; Photographer</p>
@@ -372,7 +345,6 @@
   </div>
 </section>
 
-<!-- ─── MARQUEE ─── -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <div class="marquee-item">Video Editing</div>
@@ -394,8 +366,7 @@
   </div>
 </div>
 
-<!-- ─── SHOWREEL ─── -->
-<section class="reel-section reveal" id="recent">
+<section class="reel-section" id="recent">
   <div class="reel-text-side">
     <p class="reel-eyebrow">Latest</p>
     <h2 class="reel-heading">SHOW<br><em>Reel</em></h2>
@@ -408,8 +379,7 @@
   </div>
 </section>
 
-<!-- ─── CLIENT WORK ─── -->
-<section class="projects-section section-wrap reveal" id="projects">
+<section class="projects-section section-wrap" id="projects">
   <div class="section-header">
     <span class="section-label-text">Commercial Work</span>
     <span class="section-num">01</span>
@@ -435,8 +405,7 @@
   </div>
 </section>
 
-<!-- ─── TRAVEL / PHOTOGRAPHY ─── -->
-<section class="travel-section section-wrap reveal" id="travel">
+<section class="travel-section section-wrap" id="travel">
   <div class="section-header">
     <span class="section-label-text">Travel &amp; Photography</span>
     <span class="section-num">02</span>
@@ -466,24 +435,19 @@
   </div>
 </section>
 
-<!-- ─── ABOUT ─── -->
-<section class="about-strip reveal" id="about">
+<section class="about-strip" id="about">
   <div class="about-label">LIVERPOOL<br><em>Creative</em></div>
   <div class="about-body">
-    <p>I'm Elliot Whittaker — a <strong>Liverpool-based video editor and photographer</strong> working across commercial, beauty, and travel. I shoot, I film, and I edit, bringing a hands-on approach from concept through to final cut.</p>
-    <br>
-    <p>My clients include <strong>Milani, Rimmel, Flannels, Shiseido,</strong> and <strong>Ghost</strong> — brands that trust me to translate their stories into compelling visuals.</p>
+    <p>Liverpool based and genuinely obsessed with making things look good. I discovered what I wanted to do at uni and haven't really slowed down since. Three years working in-house at an agency across commercial, beauty and brand has sharpened the craft, but the best work I've made has always come from leaning into the unknown rather than away from it. I edit, I shoot, I obsess.</p>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
 <footer id="site-footer">
   <div><div class="footer-name">ELLIOT<span>.</span></div></div>
   <div style="text-align:center;"><a href="mailto:hello@elliotwhittaker.com" class="footer-email">GET IN TOUCH</a></div>
   <div style="text-align:right;"><div class="footer-name">2026<span>.</span></div></div>
 </footer>
 
-<!-- ─── LIGHTBOX ─── -->
 <div class="lb" id="lb">
   <img class="lb-img" id="lb-img" src="" alt="">
 </div>
@@ -500,32 +464,29 @@
     el.addEventListener('mouseleave', () => cur.classList.remove('big'));
   });
 
-  // ── SCROLL REVEAL ──
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
   // ── NAV COLOUR SWITCHING ──
-  const darkSections = document.querySelectorAll('.reel-section, .projects-section, #site-footer');
+  const darkSections = document.querySelectorAll('.marquee-wrap, .reel-section, .projects-section, #site-footer');
   const nav = document.getElementById('main-nav');
-  const NAV_MID = 40;
 
   function updateNavColour() {
+    const navBottom = nav.getBoundingClientRect().bottom;
     let onDark = false;
-    darkSections.forEach(section => {
+    darkSections.forEach(function(section) {
       const r = section.getBoundingClientRect();
-      if (r.top <= NAV_MID && r.bottom >= NAV_MID) onDark = true;
+      if (r.top < navBottom && r.bottom > navBottom) {
+        onDark = true;
+      }
     });
     nav.classList.toggle('nav-light', onDark);
   }
+
   window.addEventListener('scroll', updateNavColour, { passive: true });
   window.addEventListener('resize', updateNavColour, { passive: true });
   updateNavColour();
 
   // ── LIGHTBOX ──
   const lbContainer = document.getElementById('lb');
-  const lbImg       = document.getElementById('lb-img');
+  const lbImg = document.getElementById('lb-img');
 
   function openLb(src) {
     if (!src) return;
@@ -533,13 +494,20 @@
     lbContainer.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+
   function closeLb() {
     lbContainer.classList.remove('open');
     lbImg.src = '';
     document.body.style.overflow = '';
   }
-  lbContainer.addEventListener('click', e => { if (e.target === lbContainer) closeLb(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  lbContainer.addEventListener('click', function(e) {
+    if (e.target === lbContainer) closeLb();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLb();
+  });
 </script>
 </body>
 </html>
