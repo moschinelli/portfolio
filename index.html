@@ -3,13 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Elliot Whittaker — Liverpool-based video editor and photographer. Commercial work for Milani, Rimmel, Flannels, Shiseido and more.">
-<meta name="theme-color" content="#1a1714">
 <title>Elliot Whittaker — Liverpool Creative</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1714'/%3E%3Ctext x='5' y='24' font-size='22' font-family='serif' fill='%23d63a1a'%3EE%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://images.squarespace-cdn.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -62,12 +57,28 @@
     z-index: 200;
     display: flex; align-items: center; justify-content: flex-end;
     padding: 1.8rem 2.5rem;
+    background: transparent;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-bottom: 1px solid transparent;
+    transition: background .4s ease, border-color .4s ease, backdrop-filter .4s ease;
+  }
+  nav.scrolled {
+    background: rgba(242, 237, 230, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: rgba(26, 23, 20, 0.08);
+  }
+  nav.nav-light.scrolled {
+    background: rgba(26, 23, 20, 0.55);
+    border-bottom-color: rgba(242, 237, 230, 0.08);
   }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
     font-family: var(--mono); font-size: .78rem;
     letter-spacing: .18em; text-transform: uppercase;
-    color: var(--ink); text-decoration: none; position: relative;
+    color: var(--ink); -webkit-text-fill-color: var(--ink);
+    text-decoration: none; position: relative;
     transition: color .3s ease;
   }
   .nav-links a::after {
@@ -76,7 +87,7 @@
     transition: width .3s ease;
   }
   .nav-links a:hover::after { width: 100%; }
-  nav.nav-light .nav-links a { color: var(--paper); }
+  nav.nav-light .nav-links a { color: var(--paper); -webkit-text-fill-color: var(--paper); }
   nav.nav-light .nav-links a::after { background: var(--paper); }
 
   /* HERO */
@@ -103,7 +114,13 @@
     line-height: .88; letter-spacing: .015em;
     opacity: 0; animation: fadeUp .8s ease .4s forwards;
   }
-  .hero-title em { font-family: var(--serif); font-style: italic; color: var(--accent); display: block; }
+  .hero-title em {
+    font-family: var(--serif); font-style: italic; display: block;
+    background: radial-gradient(ellipse at 50% 50%, #e8621a 0%, #d4943a 25%, #c4a882 50%, #8a4a1a 75%, #1a1714 100%);
+    background-size: 500% 500%;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: fadeUp .8s ease .4s forwards, gradientBreath 24s ease-in-out infinite;
+  }
   .hero-clients {
     margin-top: 2rem;
     font-family: var(--mono); font-size: .65rem;
@@ -167,14 +184,6 @@
   }
 
   /* SHOWREEL */
-  .reel-section,
-  .projects-section,
-  .travel-section,
-  .about-strip,
-  footer {
-    content-visibility: auto;
-  }
-
   .reel-section {
     background: var(--ink);
     display: grid; grid-template-columns: 1fr 1.5fr;
@@ -193,7 +202,13 @@
     font-family: var(--display); font-size: clamp(3rem, 6.5vw, 7.5rem);
     line-height: .88; letter-spacing: .015em; color: var(--paper); margin-bottom: 1.5rem;
   }
-  .reel-heading em { font-family: var(--serif); font-style: italic; color: var(--accent); }
+  .reel-heading em {
+    font-family: var(--serif); font-style: italic;
+    background: radial-gradient(ellipse at 50% 50%, #e8621a 0%, #d4943a 25%, #c4a882 50%, #8a4a1a 75%, #1a1714 100%);
+    background-size: 500% 500%;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: gradientBreath 24s ease-in-out infinite;
+  }
   .reel-desc {
     font-family: var(--mono); font-size: .7rem;
     color: rgba(242,237,230,.45); line-height: 1.9; max-width: 360px;
@@ -225,7 +240,13 @@
   }
   .projects-title { color: var(--paper); }
   .travel-title { color: var(--ink); }
-  .section-title em { font-family: var(--serif); font-style: italic; color: var(--accent); }
+  .section-title em {
+    font-family: var(--serif); font-style: italic;
+    background: radial-gradient(ellipse at 50% 50%, #e8621a 0%, #d4943a 25%, #c4a882 50%, #8a4a1a 75%, #1a1714 100%);
+    background-size: 500% 500%;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: gradientBreath 24s ease-in-out infinite;
+  }
   .grid-container { display: grid; gap: 20px; width: 100%; }
   .projects-grid { grid-template-columns: repeat(7, 1fr); }
   .travel-grid { grid-template-columns: repeat(6, 1fr); }
@@ -236,7 +257,6 @@
   .card-thumb {
     width: 100%; height: 100%; object-fit: cover;
     transition: transform .7s cubic-bezier(.25,.46,.45,.94); display: block;
-    will-change: transform;
   }
   .card-item:hover .card-thumb { transform: scale(1.05); }
   .card-info {
@@ -263,7 +283,13 @@
     font-family: var(--display); font-size: clamp(2.5rem, 5vw, 5rem);
     line-height: .9; letter-spacing: .02em; color: var(--ink);
   }
-  .about-label em { font-family: var(--serif); font-style: italic; color: var(--accent); display: block; }
+  .about-label em {
+    font-family: var(--serif); font-style: italic; display: block;
+    background: radial-gradient(ellipse at 50% 50%, #e8621a 0%, #d4943a 25%, #c4a882 50%, #8a4a1a 75%, #1a1714 100%);
+    background-size: 500% 500%;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: gradientBreath 24s ease-in-out infinite;
+  }
   .about-body {
     font-family: var(--mono); font-size: .72rem;
     line-height: 1.9; color: var(--muted); max-width: 640px;
@@ -287,6 +313,13 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes gradientBreath {
+    0%   { background-position: 20% 40%; }
+    25%  { background-position: 70% 60%; }
+    50%  { background-position: 40% 80%; }
+    75%  { background-position: 60% 20%; }
+    100% { background-position: 20% 40%; }
+  }
 
   /* LIGHTBOX */
   .lb {
@@ -299,21 +332,15 @@
 
   /* RESPONSIVE */
   @media (max-width: 960px) {
-    /* Nav — shrink so all links fit on one line */
     nav { padding: 1.2rem 1.2rem; }
     .nav-links { gap: 1.2rem; }
     .nav-links a { font-size: .58rem; letter-spacing: .12em; }
-
-    /* Hero — stack vertically, show image below text as a banner */
     .hero { grid-template-columns: 1fr; grid-template-rows: auto 55vw; min-height: unset; }
     .hero-left { padding: 6rem 1.5rem 2.5rem; }
     .hero-right { display: block; position: relative; width: 100%; height: 100%; }
-
-    /* Reel — stack and normalise padding to match other sections */
     .reel-section { grid-template-columns: 1fr; padding: 4rem 1.5rem; }
     .reel-text-side { padding: 0 0 2rem 0; }
     .reel-video-side { aspect-ratio: 16 / 9; }
-
     .projects-grid, .travel-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .section-wrap { padding: 4rem 1.5rem; }
     .section-header { margin-bottom: 2rem; }
@@ -347,9 +374,7 @@
     <a href="#recent" class="hero-cta">View Showreel <svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M9.5 1L13 4.5M13 4.5L9.5 8M13 4.5H1" stroke="currentColor" stroke-width="1.2"/></svg></a>
   </div>
   <div class="hero-right" id="hero-right">
-    <video class="hero-img" autoplay loop muted playsinline preload="auto">
-      <source src="https://raw.githubusercontent.com/moschinelli/portfolio/main/banner-video.mp4" type="video/mp4">
-    </video>
+    <img class="hero-img" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Hero Image">
     <div class="hero-overlay"></div>
     <div class="hero-tag">I SHOOT · I FILM · I EDIT</div>
   </div>
@@ -383,7 +408,7 @@
     <p class="reel-desc">I shoot, I film, and I edit. From brand campaigns to documentary, the work speaks for itself — raw, considered, and always in motion.</p>
   </div>
   <div class="reel-video-side">
-    <video class="reel-video" autoplay loop muted playsinline controls preload="none" poster="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w">
+    <video class="reel-video" autoplay loop muted playsinline controls poster="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w">
       <source src="showreel.mp4" type="video/mp4">
     </video>
   </div>
@@ -397,31 +422,31 @@
   <h2 class="section-title projects-title">CLIENT<br><em>&amp; Brand</em></h2>
   <div class="grid-container projects-grid">
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Milani">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Milani">
       <div class="card-info"><div class="card-name">MILANI</div><div class="card-sub">Beauty · Campaign</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Sally Hansen">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Sally Hansen">
       <div class="card-info"><div class="card-name">SALLY HANSEN</div><div class="card-sub">Beauty</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Toms">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Toms">
       <div class="card-info"><div class="card-name">TOM'S OF MAINE</div><div class="card-sub">Beauty</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=1500w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Shiseido">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Shiseido">
       <div class="card-info"><div class="card-name">SHISEIDO</div><div class="card-sub">Beauty</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Flannels">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Flannels">
       <div class="card-info"><div class="card-name">FLANNELS</div><div class="card-sub">Fashion · Campaign</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Ghost">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Ghost">
       <div class="card-info"><div class="card-name">GHOST</div><div class="card-sub">Fashion · Campaign</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Jack Wills">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Jack Wills">
       <div class="card-info"><div class="card-name">JACK WILLS</div><div class="card-sub">Fashion · Campaign</div></div>
     </div>
   </div>
@@ -435,27 +460,27 @@
   <h2 class="section-title travel-title">STILL<br><em>Life</em></h2>
   <div class="grid-container travel-grid">
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w" alt="Lake District">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w" alt="Lake District">
       <div class="card-info"><div class="card-name">LAKE DISTRICT</div><div class="card-sub">Photography</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w" alt="Berlin">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w" alt="Berlin">
       <div class="card-info"><div class="card-name">BERLIN</div><div class="card-sub">Travel</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=500w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Norway">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Norway">
       <div class="card-info"><div class="card-name">NORWAY</div><div class="card-sub">Photography</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Iceland">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Iceland">
       <div class="card-info"><div class="card-name">ICELAND</div><div class="card-sub">Photography</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Swiss Alps">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Swiss Alps">
       <div class="card-info"><div class="card-name">SWISS ALPS</div><div class="card-sub">Photography</div></div>
     </div>
     <div class="card-item" onclick="openLb('https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w')">
-      <img class="card-thumb" loading="lazy" decoding="async" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w" alt="Rome">
+      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w" alt="Rome">
       <div class="card-info"><div class="card-name">ROME</div><div class="card-sub">Travel</div></div>
     </div>
   </div>
@@ -481,39 +506,36 @@
 <script>
   // CURSOR
   var cur = document.getElementById('cursor');
-  var mouseX = 0, mouseY = 0, rafPending = false;
   document.addEventListener('mousemove', function(e) {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    if (!rafPending) {
-      rafPending = true;
-      requestAnimationFrame(function() {
-        cur.style.left = mouseX + 'px';
-        cur.style.top  = mouseY + 'px';
-        rafPending = false;
-      });
-    }
+    cur.style.left = e.clientX + 'px';
+    cur.style.top  = e.clientY + 'px';
   });
   document.querySelectorAll('a, .card-item').forEach(function(el) {
     el.addEventListener('mouseenter', function() { cur.classList.add('big'); });
     el.addEventListener('mouseleave', function() { cur.classList.remove('big'); });
   });
 
-  // NAV COLOUR SWITCHING
+  // NAV
   var nav = document.getElementById('main-nav');
-  var darkCount = 0;
-  var navObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      darkCount += entry.isIntersecting ? 1 : -1;
+  var darkSections = document.querySelectorAll('.marquee-wrap, .reel-section, .projects-section, #site-footer');
+
+  function updateNavColour() {
+    var navBottom = nav.getBoundingClientRect().bottom;
+    var onDark = false;
+    darkSections.forEach(function(section) {
+      var r = section.getBoundingClientRect();
+      if (r.top < navBottom && r.bottom > navBottom) { onDark = true; }
     });
-    nav.classList.toggle('nav-light', darkCount > 0);
-  }, {
-    rootMargin: '-' + nav.getBoundingClientRect().height + 'px 0px 0px 0px',
-    threshold: 0
-  });
-  document.querySelectorAll('.marquee-wrap, .reel-section, .projects-section, #site-footer').forEach(function(el) {
-    navObserver.observe(el);
-  });
+    nav.classList.toggle('nav-light', onDark);
+  }
+
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+    updateNavColour();
+  }, { passive: true });
+
+  window.addEventListener('resize', updateNavColour, { passive: true });
+  updateNavColour();
 
   // LIGHTBOX
   var lbContainer = document.getElementById('lb');
