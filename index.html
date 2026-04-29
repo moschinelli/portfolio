@@ -284,11 +284,24 @@
   }
   .project-modal.open .project-modal-inner { transform: translateY(0); }
   .project-modal-images { position: relative; }
-  .project-modal-hero { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+  .project-modal-hero {
+    width: 100%; aspect-ratio: 16 / 9; background: #0a0806;
+    overflow: hidden; position: relative;
+  }
+  .project-modal-hero.vertical { aspect-ratio: 9 / 16; }
+  .project-modal-hero img,
+  .project-modal-hero video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .project-modal-hero.vertical img,
+  .project-modal-hero.vertical video {
+    object-fit: contain;
+  }
   .project-modal-thumbs {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px;
     background: #0a0806;
   }
+  .project-modal-thumbs:empty { display: none; padding: 0; }
   .project-modal-thumbs img {
     width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;
     cursor: pointer; opacity: .6; transition: opacity .3s;
@@ -347,7 +360,6 @@
     footer { grid-template-columns: 1fr; }
     .project-modal-inner { grid-template-columns: 1fr; width: 95vw; max-height: 92vh; }
     .project-modal-content { padding: 2rem; }
-    .project-modal-hero { aspect-ratio: 16 / 9; }
   }
 </style>
 </head>
@@ -360,14 +372,14 @@
   <ul class="nav-links">
     <li><a href="#recent">Showreel</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#travel">Photography</a></li>
+    <li><a href="#travel">Personal Work</a></li>
     <li><a href="#about">About</a></li>
   </ul>
 </nav>
 
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Liverpool Creative · Video Editor &amp; Photographer</p>
+    <p class="hero-eyebrow">Liverpool Creative</p>
     <h1 class="hero-title">ELLIOT<br><em>Whittaker</em></h1>
     <div class="hero-clients">
       <strong>Select Clients</strong>
@@ -377,7 +389,7 @@
   </div>
   <div class="hero-right" id="hero-right">
     <video class="hero-img" autoplay loop muted playsinline>
-      <source src="https://raw.githubusercontent.com/moschinelli/portfolio/main/banner-video.mp4" type="video/mp4">
+      <source src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/banner-video.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-tag">I SHOOT · I FILM · I EDIT</div>
@@ -409,11 +421,11 @@
   <div class="reel-text-side">
     <p class="reel-eyebrow">Latest</p>
     <h2 class="reel-heading">SHOW<br><em>Reel</em></h2>
-    <p class="reel-desc">I shoot, I film, and I edit. From brand campaigns to documentary, the work speaks for itself — raw, considered, and always in motion.</p>
+    <p class="reel-desc">I shoot, I film, and I edit. From brand campaigns to documentary, the work speaks for itself, raw, considered, and always in motion.</p>
   </div>
   <div class="reel-video-side">
-    <video class="reel-video" autoplay loop muted playsinline controls poster="https://raw.githubusercontent.com/moschinelli/portfolio/main/milani-thumbnail.png">
-      <source src="showreel.mp4" type="video/mp4">
+    <video class="reel-video" autoplay loop muted playsinline controls poster="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/milani-thumbnail.png">
+      <source src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/showreel.mp4" type="video/mp4">
     </video>
   </div>
 </section>
@@ -426,31 +438,31 @@
   <h2 class="section-title projects-title">CLIENT<br><em>&amp; Brand</em></h2>
   <div class="grid-container projects-grid">
     <div class="card-item" onclick="openProject('milani')">
-      <img class="card-thumb" src="https://raw.githubusercontent.com/moschinelli/portfolio/main/milani-thumbnail.png" alt="Milani">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/milani-thumbnail.png" alt="Milani">
       <div class="card-info"><div class="card-name">MILANI</div><div class="card-sub">Beauty · Campaign</div></div>
     </div>
     <div class="card-item" onclick="openProject('sally')">
-      <img class="card-thumb" src="https://raw.githubusercontent.com/moschinelli/portfolio/main/sally-thumbnail.png" alt="Sally Hansen">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/sally-thumbnail.png" alt="Sally Hansen">
       <div class="card-info"><div class="card-name">SALLY HANSEN</div><div class="card-sub">Beauty</div></div>
     </div>
     <div class="card-item" onclick="openProject('toms')">
-      <img class="card-thumb" src="https://raw.githubusercontent.com/moschinelli/portfolio/main/toms-thumbnail.png" alt="Toms">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/toms-thumbnail.png" alt="Toms">
       <div class="card-info"><div class="card-name">TOM'S OF MAINE</div><div class="card-sub">Beauty</div></div>
     </div>
     <div class="card-item" onclick="openProject('shiseido')">
-      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Shiseido">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/shiseido-thumbnail.png" alt="Shiseido">
       <div class="card-info"><div class="card-name">SHISEIDO</div><div class="card-sub">Beauty</div></div>
     </div>
     <div class="card-item" onclick="openProject('flannels')">
-      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w" alt="Flannels">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/flannels-thumbnail.png" alt="Flannels">
       <div class="card-info"><div class="card-name">FLANNELS</div><div class="card-sub">Fashion · Campaign</div></div>
     </div>
     <div class="card-item" onclick="openProject('ghost')">
-      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Ghost">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/ghost-thumbnail.png" alt="Ghost">
       <div class="card-info"><div class="card-name">GHOST</div><div class="card-sub">Fashion · Campaign</div></div>
     </div>
     <div class="card-item" onclick="openProject('jackwills')">
-      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w" alt="Jack Wills">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/jackwills-thumbnail.png" alt="Jack Wills">
       <div class="card-info"><div class="card-name">JACK WILLS</div><div class="card-sub">Fashion · Campaign</div></div>
     </div>
   </div>
@@ -458,33 +470,33 @@
 
 <section class="travel-section section-wrap" id="travel">
   <div class="section-header">
-    <span class="section-label-text">Travel &amp; Photography</span>
+    <span class="section-label-text">Personal Work</span>
     <span class="section-num">02</span>
   </div>
-  <h2 class="section-title travel-title">STILL<br><em>Life</em></h2>
+  <h2 class="section-title travel-title">PERSONAL<br><em>Work</em></h2>
   <div class="grid-container travel-grid">
     <div class="card-item" onclick="openPhoto('lakedistrict')">
-      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w" alt="Lake District">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/lakes_thumbnail.webp" alt="Lake District">
       <div class="card-info"><div class="card-name">LAKE DISTRICT</div><div class="card-sub">Photography</div></div>
     </div>
     <div class="card-item" onclick="openPhoto('berlin')">
-      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w" alt="Berlin">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/berlin-thumbnail.webp" alt="Berlin">
       <div class="card-info"><div class="card-name">BERLIN</div><div class="card-sub">Travel</div></div>
     </div>
     <div class="card-item" onclick="openPhoto('norway')">
-      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Norway">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/norway-thumbnail.webp" alt="Norway">
       <div class="card-info"><div class="card-name">NORWAY</div><div class="card-sub">Photography</div></div>
     </div>
     <div class="card-item" onclick="openPhoto('iceland')">
-      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Iceland">
-      <div class="card-info"><div class="card-name">ICELAND</div><div class="card-sub">Photography</div></div>
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/drone-thumbnail.png" alt="Drone">
+      <div class="card-info"><div class="card-name">DRONE</div><div class="card-sub">Photography</div></div>
     </div>
     <div class="card-item" onclick="openPhoto('swissalps')">
-      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w" alt="Swiss Alps">
-      <div class="card-info"><div class="card-name">SWISS ALPS</div><div class="card-sub">Photography</div></div>
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/llandudno-thumbnail.png" alt="Llandudno">
+      <div class="card-info"><div class="card-name">LLANDUDNO</div><div class="card-sub">Photography</div></div>
     </div>
     <div class="card-item" onclick="openPhoto('rome')">
-      <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w" alt="Rome">
+      <img class="card-thumb" src="https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/rome-thumbnail.png" alt="Rome">
       <div class="card-info"><div class="card-name">ROME</div><div class="card-sub">Travel</div></div>
     </div>
   </div>
@@ -493,13 +505,13 @@
 <section class="about-strip" id="about">
   <div class="about-label">LIVERPOOL<br><em>Creative</em></div>
   <div class="about-body">
-    <p>Liverpool based and genuinely obsessed with making things look good. I discovered what I wanted to do at uni and haven't really slowed down since. Three years working in-house at an agency across commercial, beauty and brand has sharpened the craft, but the best work I've made has always come from leaning into the unknown rather than away from it. I edit, I shoot, I obsess.</p>
+    <p>Liverpool based and genuinely obsessed with making things look good. I discovered what I wanted to do at uni and haven't really slowed down since. Three years working in-house at an agency across commercial, beauty and brand has sharpened the craft, but the best work I've made has always come from leaning into the unknown rather than away from it.</p>
   </div>
 </section>
 
 <footer id="site-footer">
   <div><div class="footer-name">ELLIOT<span>.</span></div></div>
-  <div style="text-align:center;"><a href="mailto:hello@elliotwhittaker.com" class="footer-email">GET IN TOUCH</a></div>
+  <div style="text-align:center;"><a href="mailto:elliotrwsmith@gmail.com" class="footer-email">GET IN TOUCH</a></div>
   <div style="text-align:right;"><div class="footer-name">2026<span>.</span></div></div>
 </footer>
 
@@ -518,7 +530,7 @@
       <svg viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke-width="1.5" stroke-linecap="round"/></svg>
     </button>
     <div class="project-modal-images">
-      <img class="project-modal-hero" id="modal-hero-img" src="" alt="">
+      <div class="project-modal-hero" id="modal-hero"></div>
       <div class="project-modal-thumbs" id="modal-thumbs"></div>
     </div>
     <div class="project-modal-content">
@@ -558,123 +570,108 @@
   updateNavColour();
 
   // PROJECT DATA
+  var R2 = 'https://pub-719798fd9efb448fad8482e8d6878848.r2.dev/';
+
   var projects = {
     milani: {
-      eyebrow: 'Beauty · Campaign · 2023',
-      title: 'MILANI\nCOSMETICS',
-      desc: 'A high-energy beauty campaign shot and edited for Milani Cosmetics. The brief called for bold, saturated visuals that felt as vibrant as the product range itself — fast cuts, high fashion aesthetics, and a colour grade that popped on social. Delivered across multiple formats for digital and social rollout.',
-      hero: 'https://raw.githubusercontent.com/moschinelli/portfolio/main/milani-thumbnail.png',
-      thumbs: [
-        'https://raw.githubusercontent.com/moschinelli/portfolio/main/milani-thumbnail.png',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=500w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w'
-      ],
+      eyebrow: 'Beauty · Campaign · 2024',
+      title: 'MILANI',
+      desc: 'We partnered with four female athletes: Jordan Chiles, Sabrina Ionescu, Mattie Rogers, and Chiaka Ogbogu, each embodying Milani\'s authentic and inclusive beauty philosophy. Shot by Alexandra Gavillet in NYC and Houston, #MakeItLast was conceived to empower women by celebrating skin, free from retouching, and elevating the unique beauty that\u2019s all their own. I took the lead on the campaign edits, crafting every piece of motion content seen across social media.',
+      hero: R2 + 'milani-video.mp4',
+      thumbs: [],
       meta: [
-        { label: 'Role', value: 'Video Editor\nColourist' },
-        { label: 'Year', value: '2023' },
-        { label: 'Category', value: 'Beauty\nCampaign' },
-        { label: 'Deliverables', value: 'Social Content\nHero Film' }
+        { label: 'Year', value: '2024' },
+        { label: 'Campaign', value: '#MakeItLast' },
+        { label: 'Talent', value: 'Jordan Chiles\nSabrina Ionescu\nMattie Rogers\nChiaka Ogbogu' },
+        { label: 'Role', value: 'Lead Editor\nMotion Content' }
       ]
     },
     sally: {
-      eyebrow: 'Beauty · Campaign · 2023',
-      title: 'SALLY\nHANSEN',
-      desc: 'Product-led campaign for Sally Hansen focusing on nail colour and finish. Shot to emphasise texture and detail, with editing that balanced lifestyle warmth with commercial clarity. Optimised for both paid social and in-store digital display.',
-      hero: 'https://raw.githubusercontent.com/moschinelli/portfolio/main/sally-thumbnail.png',
+      eyebrow: 'Beauty · Campaign · 2025',
+      title: 'SALLY HANSEN\n#COLORLAB',
+      desc: 'We reimagined Sally Hansen\u2019s Miracle Gel through the #ColorLab lens, turning cult favorite shades into cultural icons. We redefined shade names as personal manifestos, proving that the right color doesn\u2019t just sit on your nails, they\u2019re conversation starters. I was responsible for shooting supplemental B-roll and editing the entire suite of campaign films.<br><br>You can view the final campaign assets and the full collection live on the <a href="https://www.amazon.com/stores/SallyHansen/page/569D63F9-9E97-41BA-8D19-B0AC42DE38C5" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">Sally Hansen Amazon Storefront</a>.',
+      hero: R2 + 'sally-video.mp4',
       thumbs: [
-        'https://raw.githubusercontent.com/moschinelli/portfolio/main/sally-thumbnail.png',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w'
+        R2 + 'sally-image1.jpg',
+        R2 + 'sally-image2.jpg',
+        R2 + 'sally-image3.jpg'
       ],
       meta: [
-        { label: 'Role', value: 'Video Editor' },
-        { label: 'Year', value: '2023' },
-        { label: 'Category', value: 'Beauty\nProduct' },
-        { label: 'Deliverables', value: 'Social Content\nProduct Film' }
+        { label: 'Year', value: '2025' },
+        { label: 'Campaign', value: '#ColorLab\nMiracle Gel' },
+        { label: 'Role', value: 'B-roll DOP\nLead Editor' },
+        { label: 'Deliverables', value: 'Campaign Films\nSocial Content' }
       ]
     },
     toms: {
-      eyebrow: 'Beauty · Campaign · 2022',
+      eyebrow: 'Beauty · Campaign · 2025',
       title: "TOM'S OF\nMAINE",
-      desc: "Natural beauty campaign for Tom's of Maine centred around authenticity and clean living. The visual approach leaned into natural light, real environments, and an unhurried pace — editorial and warm, a deliberate contrast to the high-gloss norm of the beauty category.",
-      hero: 'https://raw.githubusercontent.com/moschinelli/portfolio/main/toms-thumbnail.png',
-      thumbs: [
-        'https://raw.githubusercontent.com/moschinelli/portfolio/main/toms-thumbnail.png',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w'
-      ],
+      desc: 'For Tom\u2019s of Maine, we moved away from a high beauty standard to embrace something much more human. Centered on authenticity and clean living, the campaign leaned into natural light and an unhurried, editorial pace. I fronted the campaign edits.',
+      hero: R2 + 'toms-video.mp4',
+      thumbs: [],
       meta: [
-        { label: 'Role', value: 'Video Editor\nPhotographer' },
-        { label: 'Year', value: '2022' },
+        { label: 'Year', value: '2025' },
         { label: 'Category', value: 'Beauty\nLifestyle' },
-        { label: 'Deliverables', value: 'Social Content\nEditorial Stills' }
+        { label: 'Role', value: 'Lead Editor' },
+        { label: 'Deliverables', value: 'Campaign Films\nSocial Content' }
       ]
     },
     shiseido: {
-      eyebrow: 'Beauty · Campaign · 2022',
+      eyebrow: 'Beauty · Campaign · 2024',
       title: 'SHISEIDO',
-      desc: 'High concept beauty campaign for Shiseido blending digital art with live action. The project pushed into more experimental territory — abstract motion, NFT-adjacent visual language, and a cinematic grade that sat between luxury and avant-garde.',
-      hero: 'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=1500w',
+      desc: 'Partnering with Shiseido for their debut NFT campaign required a mix of brand elegance and futuristic digital craft. I was responsible for designing the 3D motion assets and fronting the production of all internal campaign video content.',
+      hero: R2 + 'shiseido-video.mp4',
       thumbs: [
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=500w',
-        'https://raw.githubusercontent.com/moschinelli/portfolio/main/milani-thumbnail.png',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w'
+        R2 + 'shiseido-image1.webp',
+        R2 + 'shiseido-image2.webp'
       ],
       meta: [
-        { label: 'Role', value: 'Video Editor\nColourist' },
-        { label: 'Year', value: '2022' },
-        { label: 'Category', value: 'Beauty\nDigital Art' },
-        { label: 'Deliverables', value: 'Hero Film\nDigital Assets' }
+        { label: 'Year', value: '2024' },
+        { label: 'Campaign', value: 'NFT Launch' },
+        { label: 'Role', value: '3D Motion Design\nLead Editor' },
+        { label: 'Deliverables', value: 'Hero Film\n3D Assets\nInternal Content' }
       ]
     },
     flannels: {
-      eyebrow: 'Fashion · Campaign · 2023',
+      eyebrow: 'Fashion · Campaign · 2024',
       title: 'FLANNELS',
-      desc: 'Fashion campaign for Flannels shot across multiple locations. Fast-paced edit with a high fashion sensibility — the kind of work that lives at the intersection of luxury retail and street culture. Delivered across OOH, social, and in-store screens.',
-      hero: 'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w',
+      desc: 'Fashion campaign for Flannels shot across multiple locations. Fast-paced edit with a high fashion sensibility, the kind of work that lives at the intersection of luxury retail and street culture. Delivered across OOH, social, and in-store screens.',
+      hero: R2 + 'flannels-video.mp4',
       thumbs: [
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/f15fe52e-147a-4829-abc4-8d251ad72769/milani01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1500w',
-        'https://raw.githubusercontent.com/moschinelli/portfolio/main/sally-thumbnail.png',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w'
+        R2 + 'flannels-image1.webp',
+        R2 + 'flannels-image2.webp',
+        R2 + 'flannels-image3.webp'
       ],
       meta: [
-        { label: 'Role', value: 'Video Editor' },
-        { label: 'Year', value: '2023' },
+        { label: 'Year', value: '2024' },
         { label: 'Category', value: 'Fashion\nRetail' },
+        { label: 'Role', value: 'Lead Editor' },
         { label: 'Deliverables', value: 'OOH\nSocial\nIn-store' }
       ]
     },
     ghost: {
-      eyebrow: 'Fashion · Campaign · 2023',
+      eyebrow: 'Fashion · Campaign · 2025',
       title: 'GHOST',
-      desc: 'Fragrance and fashion campaign for Ghost. Ethereal, soft, and considered — the edit matched the brand DNA perfectly, using slow motion, natural light, and a delicate grade to communicate the dreamlike quality of the Ghost aesthetic.',
-      hero: 'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w',
-      thumbs: [
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w',
-        'https://raw.githubusercontent.com/moschinelli/portfolio/main/toms-thumbnail.png',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w'
-      ],
+      desc: 'Fragrance and fashion campaign for Ghost. Ethereal, soft, and considered. The edit matched the brand DNA perfectly, using slow motion, natural light, and a delicate grade to communicate the dreamlike quality of the Ghost aesthetic.',
+      hero: R2 + 'ghost-video.mp4',
+      thumbs: [],
       meta: [
-        { label: 'Role', value: 'Video Editor\nColourist' },
-        { label: 'Year', value: '2023' },
+        { label: 'Year', value: '2025' },
         { label: 'Category', value: 'Fashion\nFragrance' },
+        { label: 'Role', value: 'Lead Editor' },
         { label: 'Deliverables', value: 'Hero Film\nSocial Content' }
       ]
     },
     jackwills: {
-      eyebrow: 'Fashion · Campaign · 2022',
+      eyebrow: 'Fashion · Campaign · 2024',
       title: 'JACK\nWILLS',
-      desc: 'Seasonal campaign for Jack Wills shot on location. Energetic, youthful, and rooted in British culture — the edit captured the brand spirit while delivering content that worked across every format from TikTok to print companion pieces.',
-      hero: 'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w',
-      thumbs: [
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=1000w',
-        'https://raw.githubusercontent.com/moschinelli/portfolio/main/milani-thumbnail.png',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w'
-      ],
+      desc: 'Seasonal campaign for Jack Wills shot on location. Energetic, youthful, and rooted in British culture. The edit captured the brand spirit while delivering content that worked across every format from TikTok to print companion pieces.',
+      hero: R2 + 'jackwills-video.mp4',
+      thumbs: [],
       meta: [
-        { label: 'Role', value: 'Video Editor\nPhotographer' },
-        { label: 'Year', value: '2022' },
+        { label: 'Year', value: '2024' },
         { label: 'Category', value: 'Fashion\nLifestyle' },
+        { label: 'Role', value: 'Lead Editor' },
         { label: 'Deliverables', value: 'Social Content\nTikTok\nStills' }
       ]
     }
@@ -685,13 +682,9 @@
     lakedistrict: {
       eyebrow: 'Travel · Photography · UK',
       title: 'LAKE\nDISTRICT',
-      desc: 'A personal photography series shot across the Lake District. Fuji film and digital, capturing the raw landscape in varying light conditions — early morning mist over the fells, still water, and the kind of quiet that only exists somewhere without signal.',
-      hero: 'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w',
-      thumbs: [
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w'
-      ],
+      desc: '',
+      hero: R2 + 'lakes-video.mp4',
+      thumbs: [],
       meta: [
         { label: 'Camera', value: 'Fuji X-T4\n35mm Film' },
         { label: 'Year', value: '2023' },
@@ -702,13 +695,9 @@
     berlin: {
       eyebrow: 'Travel · Street Photography · Germany',
       title: 'BERLIN',
-      desc: 'Street photography from a week spent in Berlin. Shot on 35mm film throughout — the grain, the contrast, and the unpredictability of analogue felt right for a city that still carries its history in its walls. East and west, day and night.',
-      hero: 'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w',
-      thumbs: [
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w'
-      ],
+      desc: '',
+      hero: R2 + 'berlin-video.mp4',
+      thumbs: [],
       meta: [
         { label: 'Camera', value: '35mm Film' },
         { label: 'Year', value: '2023' },
@@ -719,13 +708,9 @@
     norway: {
       eyebrow: 'Travel · Landscape · Norway',
       title: 'NORWAY',
-      desc: 'Landscape photography from the Norwegian fjords. Shot across several days in varying weather — overcast skies that turned every reflection into something painterly, then sudden bursts of late evening sun that made everything glow. One of the most visually overwhelming places I\'ve ever pointed a camera.',
-      hero: 'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=500w',
-      thumbs: [
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/89f5b342-f45b-47e9-b9d7-a0accbdcb9f4/Shiseido_Alive_with_beauty_NFT-ezgif.com-video-to-gif-converter.gif?format=500w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w'
-      ],
+      desc: '',
+      hero: R2 + 'noway-video.mp4',
+      thumbs: [],
       meta: [
         { label: 'Camera', value: 'Fuji X-T4' },
         { label: 'Year', value: '2022' },
@@ -734,49 +719,32 @@
       ]
     },
     iceland: {
-      eyebrow: 'Travel · Landscape · Iceland',
-      title: 'ICELAND',
-      desc: 'Iceland in winter — volcanic black sand, steam rising from geothermal vents, and a sky that shifted between green aurora and total white-out blizzard within the same hour. Shot on both Fuji digital and film, leaning into the drama of the environment rather than fighting it.',
-      hero: 'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w',
-      thumbs: [
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/8db5ad56-8126-487b-a667-b5c867071788/sally01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w'
-      ],
+      eyebrow: 'Aerial · Drone',
+      title: 'DRONE',
+      desc: '',
+      hero: R2 + 'drone-video.mp4',
+      thumbs: [],
       meta: [
-        { label: 'Camera', value: 'Fuji X-T4\n35mm Film' },
-        { label: 'Year', value: '2022' },
-        { label: 'Location', value: 'Reykjavik\n& South Coast' },
-        { label: 'Type', value: 'Landscape\nNature' }
+        { label: 'Type', value: 'Aerial\nDrone' }
       ]
     },
     swissalps: {
-      eyebrow: 'Travel · Landscape · Switzerland',
-      title: 'SWISS\nALPS',
-      desc: 'The Swiss Alps in early spring — snow still on the upper peaks but green pushing through in the valleys below. Shot across two days on a personal trip, focusing on scale and solitude. The kind of landscape that makes you very aware of how small everything else is.',
-      hero: 'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w',
-      thumbs: [
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/08e26d3a-c6df-447b-ba65-a04a45d749ef/toms01_pre_gif-ezgif.com-video-to-gif-converter.gif?format=500w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w'
-      ],
+      eyebrow: 'Travel · Wales',
+      title: 'LLANDUDNO',
+      desc: '',
+      hero: R2 + 'llandudno-video.mp4',
+      thumbs: [],
       meta: [
-        { label: 'Camera', value: 'Fuji X-T4' },
-        { label: 'Year', value: '2023' },
-        { label: 'Location', value: 'Graubünden\nSwitzerland' },
-        { label: 'Type', value: 'Landscape\nTravel' }
+        { label: 'Location', value: 'Llandudno\nNorth Wales' }
       ]
     },
     rome: {
       eyebrow: 'Travel · Street Photography · Italy',
       title: 'ROME',
-      desc: 'Rome through a camera is an exercise in restraint — there is so much to shoot that the edit becomes the work. Shot across four days on film and digital, focusing on light, texture, and the small human moments that happen in the shadows of something ancient.',
-      hero: 'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w',
-      thumbs: [
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/96d44fa9-258d-4efd-98b0-6219de8af9b2/ED24EE8535AD.jpeg?format=500w',
-        'https://images.squarespace-cdn.com/content/v1/6798e8ccd9703053a77ec01f/2568bd47-2887-49f8-907e-b20296ebc8c3/_DSF7567.jpeg?format=1000w'
-      ],
+      desc: '',
+      hero: R2 + 'rome-video.mp4',
+      vertical: true,
+      thumbs: [],
       meta: [
         { label: 'Camera', value: '35mm Film\nFuji X-T4' },
         { label: 'Year', value: '2024' },
@@ -788,27 +756,57 @@
 
   // MODAL ELEMENTS
   var modal = document.getElementById('project-modal');
-  var modalHeroImg = document.getElementById('modal-hero-img');
+  var modalHeroEl = document.getElementById('modal-hero');
   var modalThumbsEl = document.getElementById('modal-thumbs');
   var modalEyebrow = document.getElementById('modal-eyebrow');
   var modalTitle = document.getElementById('modal-title');
   var modalDesc = document.getElementById('modal-desc');
   var modalMeta = document.getElementById('modal-meta');
 
+  function setHeroMedia(src) {
+    modalHeroEl.innerHTML = '';
+    if (!src) return;
+    var lower = src.toLowerCase();
+    if (lower.indexOf('.mp4') !== -1 || lower.indexOf('.webm') !== -1 || lower.indexOf('.mov') !== -1) {
+      var video = document.createElement('video');
+      video.src = src;
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.playsInline = true;
+      video.setAttribute('playsinline', '');
+      video.setAttribute('muted', '');
+      video.controls = false;
+      modalHeroEl.appendChild(video);
+      var p = video.play();
+      if (p && typeof p.catch === 'function') { p.catch(function(){}); }
+    } else {
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      modalHeroEl.appendChild(img);
+    }
+  }
+
   function populateModal(data) {
     modalEyebrow.textContent = data.eyebrow;
     modalTitle.innerHTML = data.title.replace('\n', '<br>');
-    modalDesc.textContent = data.desc;
-    modalHeroImg.src = data.hero;
+    modalDesc.innerHTML = data.desc || '';
+    modalDesc.style.display = (data.desc && data.desc.length) ? '' : 'none';
+
+    modalHeroEl.classList.toggle('vertical', !!data.vertical);
+    setHeroMedia(data.hero);
 
     modalThumbsEl.innerHTML = '';
-    data.thumbs.forEach(function(src, i) {
-      var img = document.createElement('img');
-      img.src = src;
-      img.alt = 'Image ' + (i + 1);
-      img.addEventListener('click', function() { modalHeroImg.src = src; });
-      modalThumbsEl.appendChild(img);
-    });
+    if (data.thumbs && data.thumbs.length) {
+      data.thumbs.forEach(function(src, i) {
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Image ' + (i + 1);
+        img.addEventListener('click', function() { setHeroMedia(src); });
+        modalThumbsEl.appendChild(img);
+      });
+    }
 
     modalMeta.innerHTML = '';
     data.meta.forEach(function(item) {
@@ -823,18 +821,21 @@
     document.body.style.overflow = 'hidden';
   }
 
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    // Stop any playing video
+    var v = modalHeroEl.querySelector('video');
+    if (v) { v.pause(); }
+  }
+
   function openProject(key) {
     if (projects[key]) { populateModal(projects[key]); }
   }
 
   function openPhoto(key) {
     if (photos[key]) { populateModal(photos[key]); }
-  }
-
-  function closeModal() {
-    modal.classList.remove('open');
-    document.body.classList.remove('modal-open');
-    document.body.style.overflow = '';
   }
 
   document.getElementById('modal-backdrop').addEventListener('click', closeModal);
